@@ -65,22 +65,27 @@ void OnDataRecv(const esp_now_recv_info_t *info,
   inputData = inputData + "values " + receiverData.xAxisValue + "  " + receiverData.yAxisValue + "  " + receiverData.zAxisValue;
   Serial.println(inputData);
 
-  if ( receiverData.xAxisValue < 75 && receiverData.yAxisValue < 75)
+  if (receiverData.xAxisValue > 175)
   {
-    processCarMovement(FORWARD_LEFT);    
+    processCarMovement(RIGHT);  
   }
-  else if ( receiverData.xAxisValue > 175 && receiverData.yAxisValue < 75)
+  else if (receiverData.xAxisValue < 75)
   {
-    processCarMovement(FORWARD_RIGHT);    
+  
+    processCarMovement(LEFT);   
   } 
-  else if ( receiverData.xAxisValue < 75 && receiverData.yAxisValue > 175)
+
+
+  else if (receiverData.yAxisValue > 175)
   {
-    processCarMovement(BACKWARD_LEFT);    
+    processCarMovement(FORWARD);   
   }
-  else if ( receiverData.xAxisValue > 175 && receiverData.yAxisValue > 175)
+  else if (receiverData.yAxisValue < 75)
   {
-    processCarMovement(BACKWARD_RIGHT);    
-  }  
+    processCarMovement(BACKWARD); 
+  }
+
+
   else if (receiverData.zAxisValue > 175)
   {
     processCarMovement(TURN_RIGHT);
@@ -89,22 +94,27 @@ void OnDataRecv(const esp_now_recv_info_t *info,
   {
     processCarMovement(TURN_LEFT);
   }
-  else if (receiverData.yAxisValue < 75)
+
+  else if ( receiverData.xAxisValue > 175 && receiverData.yAxisValue > 175)
   {
-    processCarMovement(FORWARD);  
-  }
-  else if (receiverData.yAxisValue > 175)
-  {
-    processCarMovement(BACKWARD);     
-  }
-  else if (receiverData.xAxisValue > 175)
-  {
-    processCarMovement(RIGHT);   
-  }
-  else if (receiverData.xAxisValue < 75)
-  {
-    processCarMovement(LEFT);    
+    processCarMovement(FORWARD_RIGHT);    
   } 
+
+  else if ( receiverData.xAxisValue < 75 && receiverData.yAxisValue > 175)
+  {
+    processCarMovement(FORWARD_LEFT);    
+  }
+
+  else if ( receiverData.xAxisValue > 175 && receiverData.yAxisValue < 75)
+  {
+    processCarMovement(BACKWARD_RIGHT);    
+  } 
+
+  else if ( receiverData.xAxisValue < 75 && receiverData.yAxisValue < 75)
+  {
+    processCarMovement(BACKWARD_LEFT);    
+  }
+
   else
   {
     processCarMovement(STOP);     
@@ -207,13 +217,13 @@ void rotateMotor(int motorNumber, int motorSpeed)
 {
   if (motorSpeed < 0)
   {
-    digitalWrite(motorPins[motorNumber].pinIN1, LOW);
-    digitalWrite(motorPins[motorNumber].pinIN2, HIGH);    
+    digitalWrite(motorPins[motorNumber].pinIN1, HIGH);
+    digitalWrite(motorPins[motorNumber].pinIN2, LOW);    
   }
   else if (motorSpeed > 0)
   {
-    digitalWrite(motorPins[motorNumber].pinIN1, HIGH);
-    digitalWrite(motorPins[motorNumber].pinIN2, LOW);       
+    digitalWrite(motorPins[motorNumber].pinIN1, LOW);
+    digitalWrite(motorPins[motorNumber].pinIN2, HIGH);       
   }
   else
   {
