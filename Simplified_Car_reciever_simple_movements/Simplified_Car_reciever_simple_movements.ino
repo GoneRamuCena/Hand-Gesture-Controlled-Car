@@ -63,12 +63,12 @@ void OnDataRecv(const esp_now_recv_info_t *info,
 
   if (receiverData.xAxisValue > 175)
   {
-    processCarMovement(LEFT);  
+    processCarMovement(RIGHT);  
   }
   else if (receiverData.xAxisValue < 75)
   {
   
-    processCarMovement(RIGHT);   
+    processCarMovement(LEFT);   
   } 
 
 
