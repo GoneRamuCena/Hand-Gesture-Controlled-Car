@@ -28,8 +28,8 @@ struct MOTOR_PINS
 
 std::vector<MOTOR_PINS> motorPins = 
 {
-  {16, 17, 22, 4},  //BACK_RIGHT_MOTOR
-  {18, 19, 23, 5},  //BACK_LEFT_MOTOR
+  {18, 19, 23, 5},  //BACK_RIGHT_MOTOR
+  {16, 17, 22, 4},  //BACK_LEFT_MOTOR
   {26, 27, 14, 6},  //FRONT_RIGHT_MOTOR
   {33, 25, 32, 7},  //FRONT_LEFT_MOTOR   
 };
