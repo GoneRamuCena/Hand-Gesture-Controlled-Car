@@ -108,4 +108,4 @@ Click below to watch the project demonstration on LinkedIn!
 
 https://www.linkedin.com/posts/gone-ramu-2155092b2_hand-gesture-controlled-car-using-mpu6050-ugcPost-7527345551101784065-8P75/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEsumfEBdfpbRoL04rRFCpsATJalW3cUVUA
 
-**Note : go through the project report ppt for more details.**
+**Note : go through the project report section for more details.**
